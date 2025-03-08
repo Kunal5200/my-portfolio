@@ -8,3 +8,8 @@ export interface HEADER_PROPS {
   label: string;
   url: string;
 }
+
+export interface PERSONAL_PROPS {
+  label: string;
+  value: string;
+}

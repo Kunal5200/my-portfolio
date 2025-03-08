@@ -4,6 +4,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import { Box, Typography } from "@mui/material";
 import BackgroundWrapper from "@/components/BackgroundWrapper";
+import Intro from "@/components/Intro";
+import Wrapper from "@/components/Wrapper";
 
 export default function Home() {
   return (
@@ -15,9 +17,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Box>
-        {/* <BackgroundWrapper>
-          <Typography sx={{ fontSize: 14, color: "#ffffff" }}>Hello</Typography>
-        </BackgroundWrapper> */}
+        <BackgroundWrapper>
+          <Wrapper>
+            <Intro />
+          </Wrapper>
+        </BackgroundWrapper>
       </Box>
     </>
   );

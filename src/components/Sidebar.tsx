@@ -12,7 +12,15 @@ import React from "react";
 import profile from "@/profile.jpg";
 import { COLORS } from "@/utils/enum";
 import { HEADER_LINKS } from "@/assets/header";
+import { roboto } from "@/utils/fonts";
+import { useRouter } from "next/router";
 const Sidebar = () => {
+  const router = useRouter();
+
+  const handleRouter = (path: string) => {
+    router.push(path);
+  };
+
   return (
     <div>
       <Box
@@ -24,6 +32,7 @@ const Sidebar = () => {
           width: 300,
           boxShadow: "0px 0px 3px 3px #00000059",
           backgroundColor: COLORS.sidebar_bg,
+          zIndex: 999,
         }}
       >
         <Box sx={{ textAlign: "center", p: 4 }}>
@@ -42,10 +51,28 @@ const Sidebar = () => {
 
         <List sx={{ mt: 4 }}>
           {HEADER_LINKS.map((val, i) => (
-            <ListItemButton key={i}>
+            <ListItemButton
+              key={i}
+              onClick={() => handleRouter(val.url)}
+              sx={{
+                backgroundColor:
+                  val.url === router.pathname
+                    ? COLORS.PRIMARY
+                    : COLORS.TRANSPARENT,
+                ":hover": {
+                  backgroundColor: COLORS.PRIMARY,
+                },
+              }}
+            >
               <ListItemText
                 primary={
-                  <Typography sx={{ textAlign: "center" }}>
+                  <Typography
+                    sx={{
+                      textAlign: "center",
+                      color: COLORS.WHITE,
+                      fontFamily: roboto.style,
+                    }}
+                  >
                     {val.label}
                   </Typography>
                 }
