@@ -1,8 +1,17 @@
-import { Avatar, Box, Divider } from "@mui/material";
+import {
+  Avatar,
+  Box,
+  Divider,
+  List,
+  ListItemButton,
+  ListItemText,
+  Typography,
+} from "@mui/material";
 import Image from "next/image";
 import React from "react";
 import profile from "@/profile.jpg";
 import { COLORS } from "@/utils/enum";
+import { HEADER_LINKS } from "@/assets/header";
 const Sidebar = () => {
   return (
     <div>
@@ -30,6 +39,20 @@ const Sidebar = () => {
           </Avatar>
         </Box>
         <Divider sx={{ borderColor: COLORS.GREY, borderWidth: 1 }} />
+
+        <List sx={{ mt: 4 }}>
+          {HEADER_LINKS.map((val, i) => (
+            <ListItemButton key={i}>
+              <ListItemText
+                primary={
+                  <Typography sx={{ textAlign: "center" }}>
+                    {val.label}
+                  </Typography>
+                }
+              />
+            </ListItemButton>
+          ))}
+        </List>
       </Box>
     </div>
   );
