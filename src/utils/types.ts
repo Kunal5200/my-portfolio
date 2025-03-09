@@ -1,3 +1,4 @@
+import { StaticImageData } from "next/image";
 import { ElementType, ReactNode } from "react";
 
 export interface LayoutProps {
@@ -33,4 +34,11 @@ export interface EXPERIENCE_PROPS {
 export interface RESUME_HEADING_PROPS {
   Icon: ElementType;
   label: string;
+}
+
+export interface PORTFOLIO_PROPS {
+  img: StaticImageData;
+  projectName: string;
+  description: string;
+  url: string;
 }
