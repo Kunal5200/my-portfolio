@@ -1,8 +1,9 @@
 import { COLORS } from "@/utils/enum";
 import { roboto } from "@/utils/fonts";
+import { SKILL_PROGRESS } from "@/utils/types";
 import { Grid2, LinearProgress, Stack, Typography } from "@mui/material";
 
-const SkillProgress = () => {
+const SkillProgress = ({ skill, value }: SKILL_PROGRESS) => {
   return (
     <div>
       <Typography
@@ -13,18 +14,18 @@ const SkillProgress = () => {
           fontFamily: roboto.style,
         }}
       >
-        HTML5
+        {skill}
       </Typography>
       <Grid2 container alignItems={"center"}>
         <Grid2 size={1}>
           <Typography
             sx={{ color: COLORS.GREY_TEXT, fontFamily: roboto.style, mt: 1 }}
           >
-            95%
+            {value}%
           </Typography>
         </Grid2>
         <Grid2 size={11}>
-          <LinearProgress value={95} variant="determinate" />
+          <LinearProgress value={value} variant="determinate" />
         </Grid2>
       </Grid2>
     </div>

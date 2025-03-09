@@ -1,15 +1,9 @@
 import profile from "@/profile.jpg";
 import { COLORS } from "@/utils/enum";
 import { roboto } from "@/utils/fonts";
-import {
-  Box,
-  Button,
-  Divider,
-  Grid2,
-  Stack,
-  Typography
-} from "@mui/material";
+import { Box, Button, Divider, Grid2, Stack, Typography } from "@mui/material";
 import Image from "next/image";
+import Heading from "./heading";
 const AboutComponent = () => {
   const handleDownload = async () => {
     const response = await fetch("/Kunal-resume.pdf");
@@ -27,26 +21,7 @@ const AboutComponent = () => {
   return (
     <div>
       <Box sx={{ mt: 4, p: 2 }}>
-        <Typography
-          sx={{
-            fontSize: 30,
-            color: COLORS.WHITE,
-            fontFamily: roboto.style,
-            textTransform: "uppercase",
-            fontWeight: 600,
-          }}
-        >
-          About Me
-        </Typography>
-        <Divider
-          sx={{
-            borderColor: COLORS.PRIMARY,
-            width: 100,
-            mt: 1,
-            borderWidth: 2,
-            borderRadius: 2,
-          }}
-        />
+        <Heading label="About Me" />
         <Grid2 container sx={{ mt: 4 }} spacing={6}>
           <Grid2 size={5} textAlign={"center"}>
             <Image
